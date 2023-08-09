@@ -17,7 +17,7 @@
       "url": "/about"
     },
     {
-      "name": "About",
+      "name": "Agency",
       "url": "",
       "hasChildren": true,
       "children": [
@@ -29,7 +29,6 @@
           "name": "Get Scouted",
           "url": "/scout"
         },
-
         {
           "name": "Privacy Policy",
           "url": "/privacy-policy"

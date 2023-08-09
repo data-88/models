@@ -7,7 +7,7 @@ tags: ["women", "main"]
 ---
 
 ![portfolio](/images/models/anamarieb/415.jpg)
-![campaign](/images/models/anamarieb/436.jpg
+![campaign](/images/models/anamarieb/436.jpg)
 ![image inf](/images/models/anamarieb/441.jpg)
 ![image inf](/images/models/anamarieb/449.jpg)
 

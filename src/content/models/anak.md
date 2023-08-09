@@ -1,7 +1,7 @@
 ---
 name: "Ana K"
 description: "meta description"
-image: "/images/models/054.jpg"
+image: "/images/models/anak/054.jpg"
 categories: ["women"]
 tags: ["blonde", "CT"]
 ---
