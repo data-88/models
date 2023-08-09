@@ -1,6 +1,6 @@
 ---
 import config from "@config/config.json";
-import Models from "@layouts/models.astro";
+import Models from "@layouts/Models.astro";
 import Base from "@layouts/Base.astro";
 import Pagination from "@layouts/components/Pagination.astro";
 import { getSingleModel} from "@lib/contentParser.astro";
@@ -8,7 +8,7 @@ import { markdownify } from "@lib/utils/textConverter";
 
 export async function getStaticPaths() {
   const models = await getSingleModel("models");
-  const totalModels = Math.ceil(100 / config.settings.pagination);
+  const totalModels = Math.ceil(30 / config.settings.pagination);
   const paths = [];
 
   for (let i = 1; i < totalModels; i++) {

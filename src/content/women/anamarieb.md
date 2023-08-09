@@ -1,6 +1,5 @@
 ---
 name: Anamarie B
-description: "meta description"
 image: "/images/models/anamarieb/415.jpg"
 categories: ["development"]
 tags: ["women", "main"]

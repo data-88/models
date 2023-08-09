@@ -1,6 +1,5 @@
 ---
 name: "Alena"
-description: "Alena from Cape Town"
 image: "/images/models/alena/alena1.jpg"
 tags: ["Woman", "Blonde"]
 categories: ["Women"]

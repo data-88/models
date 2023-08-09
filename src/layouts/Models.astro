@@ -32,7 +32,7 @@ const { className, models, fluid } = Astro.props;
                       href={`/categories/${slugify(category)}`}
                       class="mr-2 hover:text-primary font-medium"
                     >
-                      {humanize(category)}{i !== model.data.categories.category - 1 && ","}
+                      {humanize(category)}{i !== model.data.categories.name - 1 && ","}
                     </a>
                   </li>
                 ))}

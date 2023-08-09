@@ -1,19 +1,13 @@
 ---
 import config from "@config/config.json";
 import Base from "@layouts/Base.astro";
-import Pagination from "@layouts/components/Pagination.astro";
-import Models from "@layouts/Models.astro";
-import { getCollection } from 'astro:content';
-import { getSingleModel } from "@lib/contentParser.astro";
-const models = await getCollection("models");
-const totalModels = Math.ceil(100 / config.settings.pagination);
+
 ---
 
 <Base>
   <section class="section">
     <div class="container">
-      <Models models={models} className="mb-16" />
-      <Pagination currentModels={1} totalModels={totalModels} />
+      <h1>Welcome to Pure Model Management</h1>
     </div>
   </section>
 </Base>

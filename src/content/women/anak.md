@@ -1,9 +1,8 @@
 ---
-name: "Belen S"
-description: "meta description"
-image: "/images/models/belens/belens2.jpg"
+name: "Ana K"
+image: "/images/models/anak/054.jpg"
 categories: ["women"]
-tags: ["cape town", "international"]
+tags: ["blonde", "CT"]
 ---
 
 Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.

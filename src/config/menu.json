@@ -6,15 +6,19 @@
     },
     {
       "name": "Women",
-      "url": "/"
+      "url": "/women"
     },
     {
       "name": "Men",
-      "url": "/"
+      "url": "/men"
     },
     {
-      "name": "About",
-      "url": "/about"
+      "name": "Non-binary",
+      "url": "/non-binary"
+    },
+    {
+      "name": "Kids",
+      "url": "/kids"
     },
     {
       "name": "Agency",
@@ -22,16 +26,16 @@
       "hasChildren": true,
       "children": [
         {
+          "name": "About",
+          "url": "/about"
+        },
+        {
           "name": "Contact",
           "url": "/contact"
         },
         {
           "name": "Get Scouted",
           "url": "/scout"
-        },
-        {
-          "name": "Privacy Policy",
-          "url": "/privacy-policy"
         }
       ]
     }

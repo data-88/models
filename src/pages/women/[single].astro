@@ -1,23 +1,22 @@
 ---
 import { Image } from "@astrojs/image/components";
 
-import AuthorSingle from "@layouts/AuthorSingle.astro";
+import ModelSingle from "@layouts/ModelSingle.astro";
 import Base from "@layouts/Base.astro";
-import { getSinglePage } from "@lib/contentParser.astro";
-import dateFormat from "@lib/utils/dateFormat";
+import { getSingleModel } from "@lib/contentParser.astro";
 
 import { sortBy } from "@lib/utils/sortFunctions";
 import { humanize,slugify } from "@lib/utils/textConverter";
 import { BiCalendarEdit,BiCategoryAlt } from "react-icons/bi/index.js";
 
 export async function getStaticPaths() {
-  const authors = await getSinglePage("authors");
+  const models = await getSingleModel("models");
 
-  const paths = authors.map((author) => ({
+  const paths = models.map((model) => ({
     params: {
-      single: author.slug,
+      single: model.slug,
     },
-    props: { author },
+    props: { model },
   }));
   return paths;
 }

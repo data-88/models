@@ -15,7 +15,6 @@ export interface Props {
   name?: string;
   meta_title?: string;
   image?: string;
-  noindex?: boolean;
   canonical?: string;
 }
 
@@ -30,7 +29,7 @@ const { name, meta_title, image, noindex, canonical } =
     <!-- favicon -->
     <link rel="shortcut icon" href={config.site.favicon} />
     <!-- theme meta -->
-    <meta name="purpose" content="Model Agency Cape Town" />
+    <meta name="Agency" content="Model Agency Cape Town" />
     <meta name="msapplication-TileColor" content="#000000" />
     <meta
       name="theme-color"
@@ -73,32 +72,32 @@ const { name, meta_title, image, noindex, canonical } =
     {noindex && <meta name="robots" content="" />}
 
     <!-- og-title -->
-    <meta
+    <!-- <meta
       property="og:title"
       content={plainify(
         meta_title ? meta_title : name ? name : config.site.title
       )}
-    />
+    /> -->
 
 
 
 
     <!-- og-image -->
-    <meta
+    <!-- <meta
       property="og:image"
       content={`${config.site.base_url}${
         image ? image : config.metadata.meta_image
       }`}
-    />
+    /> -->
 
     <!-- twitter-image -->
-    <meta
+    <!-- <meta
       name="twitter:image"
       content={`${config.site.base_url}${
         image ? image : config.metadata.meta_image
       }`}
-    />
-    <meta name="twitter:card" content="summary_large_image" />
+    /> -->
+    <!-- <meta name="twitter:card" content="summary_large_image" /> -->
   </head>
   <body>
     <Header />

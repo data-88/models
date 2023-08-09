@@ -1,0 +1,43 @@
+---
+import config from "@config/config.json";
+import Models from "@layouts/Models.astro";
+import Base from "@layouts/Base.astro";
+import Pagination from "@layouts/components/Pagination.astro";
+import { getSingleModel} from "@lib/contentParser.astro";
+import { markdownify } from "@lib/utils/textConverter";
+
+export async function getStaticPaths() {
+  const women = await getSingleWomen("women");
+  const totalWomen = Math.ceil(40 / config.settings.pagination);
+  const paths = [];
+
+  for (let i = 1; i < totalWomen; i++) {
+    paths.push({
+      params: {
+        slug: (i + 1).toString(),
+      },
+    });
+  }
+  return paths;
+}
+
+const { slug } = Astro.params;
+const women = await getSingleModel"women");
+const currentPage = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
+const indexOfLastPost = currentPage * config.settings.pagination;
+const indexOfFirstPost = indexOfLastPost - config.settings.pagination;
+---
+
+<Base title={"Women"}>
+  <section class="section">
+    <div class="container text-center">
+      <h1 set:text={markdownify("Women")} class="page-heading h2" />
+      <Women women={currentWomen} />
+      <Pagination
+        section={"women"}
+        currentWoman={currentWoman}
+        totalWoman={totalWoman}
+      />
+    </div>
+  </section>
+</Base>
