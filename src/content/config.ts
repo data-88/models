@@ -34,7 +34,7 @@ const modelsCollection = defineCollection({
   schema: z.object({
     id: z.string().optional(),
     name: z.string(),
-    rating: z.string(),
+    rating: z.number().default(5),
     meta_title: z.string().optional(),
     description: z.string().optional(),
     image: z.string().optional(),
@@ -45,7 +45,7 @@ const modelsCollection = defineCollection({
 
 // Export collections
 export const collections = {
-  posts: postsCollection,
+  // posts: postsCollection,
   pages: pagesCollection,
   models: modelsCollection,
 };

@@ -4,7 +4,7 @@ description: "meta description"
 image: "/images/models/415.jpg"
 categories: ["development"]
 tags: ["women", "main"]
-rating: "5"
+rating: 5
 ---
 
 ![portfolio](/images/models/415.jpg)

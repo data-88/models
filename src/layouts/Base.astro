@@ -16,12 +16,13 @@ export interface Props {
   meta_title?: string;
   description?: string;
   image?: string;
+  rating?: number;
   noindex?: boolean;
   canonical?: string;
 }
 
 // distructure frontmatters
-const { name, meta_title, description, image, noindex, canonical } =
+const { name, meta_title, description, image, rating, noindex, canonical } =
   Astro.props;
 ---
 
@@ -62,7 +63,7 @@ const { name, meta_title, description, image, noindex, canonical } =
       content="width=device-width, initial-scale=1, maximum-scale=5"
     />
 
-    <!-- title -->
+    <!-- name -->
     <name>
       {plainify(meta_title ? meta_title : name ? name : config.site.title)}
     </name>
@@ -81,14 +82,11 @@ const { name, meta_title, description, image, noindex, canonical } =
       )}
     />
 
-    <!-- author from config.json -->
-    <meta name="author" content={config.metadata.meta_author} />
-
     <!-- og-title -->
     <meta
       property="og:title"
       content={plainify(
-        meta_title ? meta_title : title ? title : config.site.title
+        meta_title ? meta_title : name ? name : config.site.title
       )}
     />
 

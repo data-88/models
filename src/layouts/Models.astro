@@ -33,7 +33,7 @@ const { className, models, fluid } = Astro.props;
                       href={`/categories/${slugify(category)}`}
                       class="mr-2 hover:text-primary font-medium"
                     >
-                      {humanize(category)}{i !== model.data.categories.rating - 1 && ","}
+                      {humanize(category)}{i - 1 && ","}
                     </a>
                   </li>
                 ))}
@@ -46,9 +46,6 @@ const { className, models, fluid } = Astro.props;
             {model.data.name}
           </a>
         </h3>
-        <p class="text-text">
-          {model.body?.slice(0, Number(i === 0 && fluid != false ? rating * 2 : rating))}...
-        </p>
       </div>
     ))
   }

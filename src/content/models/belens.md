@@ -4,7 +4,7 @@ description: "meta description"
 image: "/images/posts/01.jpg"
 categories: ["women"]
 tags: ["cape town", "international"]
-rating: "5"
+rating: 5
 ---
 
 Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
