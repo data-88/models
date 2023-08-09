@@ -1,38 +1,39 @@
 ---
 import Base from "@layouts/Base.astro";
 import Default from "@layouts/Default.astro";
-import Woman from "@layouts/Woman.astro";
-import { getSingleWoman } from "@lib/contentParser.astro";
+import ModelSingle from "@layouts/Woman.astro";
+import { getSingleModel } from "@lib/contentParser.astro";
 
 const getModels = await getSingleModel("models");
-const modelsSlug = getModels.map((item) => item.slug);
+const modelssSlug = getModels.map((item) => item.slug);
 
 export async function getStaticPaths() {
-  const women = await getSingleWoman("women");
-  const allWomen = [...women];
+  const models = await getSingleModel("models");
+  const allModels = [...models];
 
-  const paths = allWomen.map((woman) => ({
+  const paths = allModels.map((model) => ({
     params: {
-      regular: woman.slug,
+      regular: model.slug,
     },
-    props: { woman },
+    props: { model },
   }));
   return paths;
 }
 
-const { woman } = Astro.props;
-const { name, image } = woman.data;
+const { model } = Astro.props;
+const { name, meta_name, image } = model.data;
 ---
 
 <Base
   name={name}
+  meta_name={meta_name}
   image={image}
 >
   {
-    womenSlug.includes(woman.slug) ? (
-      <Woman woman={woman} />
+    modelsSlug.includes(model.slug) ? (
+      <ModelSingle model={model} />
     ) : (
-      <Default data={woman} />
+      <Default data={model} />
     )
   }
 </Base>

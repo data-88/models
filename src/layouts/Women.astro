@@ -26,16 +26,11 @@ const { className, women, fluid } = Astro.props;
             <BiCategoryAlt className="mr-1 h-[18px] w-[18px] text-gray-600" />
             <>
               <ul>
-                {woman.data.categories.map((category: string, i: number) => (
-                  <li class="inline-block">
-                    <a
-                      href={`/categories/${slugify(category)}`}
-                      class="mr-2 hover:text-primary font-medium"
-                    >
-                      {humanize(category)}{i !== woman.data.categories.name - 1 && ","}
-                    </a>
-                  </li>
-                ))}
+                <h3 class="h4 mt-8 mb-3">
+                  <a href={`/authors/${woman.slug}`} class="block hover:text-primary transition duration-200">
+                    {woman.data.name}
+                  </a>
+                </h3>
               </ul>
             </>
           </li>

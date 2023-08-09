@@ -1,25 +1,24 @@
 ---
 import { Image } from "@astrojs/image/components";
-import ModelSingle from "@layouts/ModelSingle.astro";
+import Woman from "@layouts/Woman.astro";
 import Base from "@layouts/Base.astro";
 import { getSingleWoman } from "@lib/contentParser.astro";
-import Women from "@layouts/Women.astro";
 import { humanize,slugify } from "@lib/utils/textConverter";
 import { BiCategoryAlt } from "react-icons/bi/index.js";
 
 export async function getStaticPaths() {
-  const women = await getAllWomen("women");
-  const paths = women.map((women) => ({
+  const women = await getSingleWoman("women");
+  const paths = women.map((woman) => ({
     params: {
-      single: women.slug,
+      single: woman.slug,
     },
-    props: { women },
+    props: { woman },
   }));
   return paths;
 }
 
-const { women } = Astro.props;
-const { name, meta_title, image } = women.data;
+const { woman } = Astro.props;
+const { name, meta_title, image } = woman.data;
 
 ---
 
@@ -28,7 +27,7 @@ const { name, meta_title, image } = women.data;
   meta_title={meta_title}
   image={image}
 >
-  <Women woman={women} />
+  <Woman woman={woman} />
             <h3 class="h5">
               <a href={`/${woman.slug}`} class="block hover:text-primary transition duration-300">
                 {woman.data.name}
