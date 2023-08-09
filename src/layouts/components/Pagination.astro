@@ -1,18 +1,18 @@
 ---
-const { section, currentPage, totalPages } = Astro.props;
+const { section, currentModel, totalModels} = Astro.props;
 
-const indexPageLink = currentPage === 2;
-const hasPrevPage = currentPage > 1;
-const hasNextPage = totalPages > currentPage;
+const indexPageLink = currentModels === 2;
+const hasPrevPage = currentModel > 1;
+const hasNextPage = totalModels > currentModel
 
 let pageList = [];
-for (let i = 1; i <= totalPages; i++) {
+for (let i = 1; i <= totalModels; i++) {
   pageList.push(i);
 }
 ---
 
 {
-  totalPages > 1 && (
+  totalModels > 1 && (
     <nav class="mb-4 flex justify-center space-x-2 text-center" aria-label="Pagination">
       {/* previous */}
       {hasPrevPage ? (
@@ -20,7 +20,7 @@ for (let i = 1; i <= totalPages; i++) {
           href={
             indexPageLink
               ? `${section ? "/" + section : "/"}`
-              : `${section ? "/" + section : ""}/page/${currentPage - 1}`
+              : `${section ? "/" + section : ""}/page/${currentModel - 1}`
           }
           class="border border-primary hover:bg-primary hover:text-white rounded-md h-10 w-10 leading-[36px] font-semibold text-dark flex items-center justify-center transition duration-200"
         >
@@ -60,7 +60,7 @@ for (let i = 1; i <= totalPages; i++) {
 
       {/* page index */}
       {pageList.map((pagination, i) =>
-        pagination === currentPage ? (
+        pagination === currentModel ? (
           <span
             aria-current="page"
             class={`border border-primary bg-primary rounded-md h-10 w-10 leading-[35px] font-semibold text-white`}
@@ -72,7 +72,7 @@ for (let i = 1; i <= totalPages; i++) {
             href={
               i === 0
                 ? `${section ? "/" + section : "/"}`
-                : `${section ? "/" + section : ""}/page/${pagination}`
+                : `${section ? "/" + section : ""}/model/${pagination}`
             }
             aria-current="page"
             class={`border border-primary hover:bg-primary hover:text-white rounded-md h-10 w-10 leading-[36px] font-semibold text-dark flex items-center justify-center transition duration-200`}
@@ -85,7 +85,7 @@ for (let i = 1; i <= totalPages; i++) {
       {/* next page */}
       {hasNextPage ? (
         <a
-          href={`${section ? "/" + section : ""}/page/${currentPage + 1}`}
+          href={`${section ? "/" + section : ""}/page/${currentModel + 1}`}
           class="border border-primary hover:bg-primary hover:text-white rounded-md h-10 w-10 leading-[36px] font-semibold text-dark flex items-center justify-center transition duration-200"
         >
           <span class="sr-only">Next</span>

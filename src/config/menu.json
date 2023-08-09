@@ -5,34 +5,31 @@
       "url": "/"
     },
     {
+      "name": "Women",
+      "url": "/"
+    },
+    {
+      "name": "Men",
+      "url": "/"
+    },
+    {
       "name": "About",
       "url": "/about"
     },
     {
-      "name": "Contact",
-      "url": "/contact"
-    },
-    {
-      "name": "Pages",
+      "name": "About",
       "url": "",
       "hasChildren": true,
       "children": [
         {
-          "name": "Authors",
-          "url": "/authors"
+          "name": "Contact",
+          "url": "/contact"
         },
         {
-          "name": "Categories",
-          "url": "/categories"
+          "name": "Get Scouted",
+          "url": "/scout"
         },
-        {
-          "name": "Tags",
-          "url": "/tags"
-        },
-        {
-          "name": "Elements",
-          "url": "/elements"
-        },
+
         {
           "name": "Privacy Policy",
           "url": "/privacy-policy"
@@ -50,8 +47,12 @@
       "url": "/contact"
     },
     {
-      "name": "Elements",
-      "url": "/elements"
+      "name": "Tags",
+      "url": "/Tags"
+    },
+    {
+      "name": "Categories",
+      "url": "/Catagories"
     },
     {
       "name": "Privacy Policy",

@@ -1,0 +1,35 @@
+---
+import Base from "@layouts/Base.astro";
+import Models from "@layouts/Models.astro";
+import { getSinglePage } from "@lib/contentParser.astro";
+import { getTaxonomy } from "@lib/taxonomyParser.astro";
+import taxonomyFilter from "@lib/utils/taxonomyFilter";
+import { humanize } from "@lib/utils/textConverter";
+
+export async function getStaticPaths() {
+  const categories = await getTaxonomy("posts", "categories");
+
+  return categories.map((category) => {
+    return {
+      params: { category },
+    };
+  });
+}
+
+const { category } = Astro.params;
+
+const models = await getSinglePage("models");
+const filterByCategory = taxonomyFilter(models, "categories", category);
+
+const title = humanize(category || "")
+---
+
+<Base title={title || "Category"}>
+  <div class="section">
+    <div class="container">
+      <p class="text-center mb-4">Showing </p>
+      <h1 class="h2 mb-16 text-center text-primary">{title}</h1>
+      <Models models={filterByCategory} fluid={false} />
+    </div>
+  </div>
+</Base>
