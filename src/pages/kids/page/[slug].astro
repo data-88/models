@@ -1,17 +1,17 @@
 ---
 import config from "@config/config.json";
-import Authors from "@layouts/Authors.astro";
+import Kid from "@layouts/Kid.astro";
 import Base from "@layouts/Base.astro";
 import Pagination from "@layouts/components/Pagination.astro";
-import { getSinglePage } from "@lib/contentParser.astro";
+import { getSingleKid } from "@lib/contentParser.astro";
 import { markdownify } from "@lib/utils/textConverter";
 
 export async function getStaticPaths() {
-  const authors = await getSinglePage("authors");
-  const totalPages = Math.ceil(authors.length / config.settings.pagination);
+  const Kids = await getSingleKid("Kids");
+  const totalKids = Math.ceil(40 / config.settings.pagination);
   const paths = [];
 
-  for (let i = 1; i < totalPages; i++) {
+  for (let i = 1; i < totalKids; i++) {
     paths.push({
       params: {
         slug: (i + 1).toString(),
@@ -22,22 +22,21 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const authors = await getSinglePage("authors");
-const totalPages = Math.ceil(authors.length / config.settings.pagination);
-const currentPage = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
-const indexOfLastPost = currentPage * config.settings.pagination;
-const indexOfFirstPost = indexOfLastPost - config.settings.pagination;
+const Kids = await getAllKids("kids");
+const currentKid = slug;
+const indexOfLastKid = currentKid * config.settings.pagination;
+const indexOfFirstKid = indexOfLastKid - config.settings.pagination;
 ---
 
-<Base title={"Authors"}>
+<Base title={"Kid"}>
   <section class="section">
     <div class="container text-center">
-      <h1 set:text={markdownify("Authors")} class="page-heading h2" />
-      <Authors authors={currentPosts} />
+      <h1 set:text={markdownify("Kids")} class="page-heading h2" />
+      <Kid kid={currentKid} />
       <Pagination
-        section={"authors"}
-        currentPage={currentPage}
-        totalPages={totalPages}
+        section={"kids"}
+        currentKid={currentKid}
+        totalKids={totalKids}
       />
     </div>
   </section>

@@ -1,0 +1,35 @@
+---
+import { Image } from "@astrojs/image/components";
+import { markdownify } from "@lib/utils/textConverter";
+import { BsArrowRightCircle } from "react-icons/bs/index.js";
+const { models } = Astro.props;
+---
+
+<div class="row justify-center">
+  {
+    models.map((model: any) => (
+      <div class="col-12 mb-8 sm:col-6 md:col-4">
+        {model.data.image && (
+          <div class="mb-4">
+            <Image
+              src={model.data.image}
+              alt={model.data.title}
+              height={150}
+              width={150}
+              class="mx-auto rounded-lg"
+            />
+          </div>
+        )}
+        <h3 class="h4 mt-8 mb-3">
+          <a href={`/authors/${model.slug}`} class="block hover:text-primary transition duration-200">
+            {model.data.title}
+          </a>
+        </h3>
+        <p class="mb-3" set:text={markdownify(model.body.slice(0, 100))} />
+        <a href={`/authors/${model.slug}`} class="inline-flex items-center text-primary transition duration-200 hover:opacity-70">
+          See more <BsArrowRightCircle className="inline ml-2" />
+        </a>
+      </div>
+    ))
+  }
+</div>

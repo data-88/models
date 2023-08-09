@@ -1,17 +1,17 @@
 ---
 import config from "@config/config.json";
-import Authors from "@layouts/Authors.astro";
+import Man from "@layouts/Man.astro";
 import Base from "@layouts/Base.astro";
 import Pagination from "@layouts/components/Pagination.astro";
-import { getSinglePage } from "@lib/contentParser.astro";
+import { getSingleMan } from "@lib/contentParser.astro";
 import { markdownify } from "@lib/utils/textConverter";
 
 export async function getStaticPaths() {
-  const authors = await getSinglePage("authors");
-  const totalPages = Math.ceil(authors.length / config.settings.pagination);
+  const women = await getSingleMan("women");
+  const totalMen = Math.ceil(40 / config.settings.pagination);
   const paths = [];
 
-  for (let i = 1; i < totalPages; i++) {
+  for (let i = 1; i < totalMen; i++) {
     paths.push({
       params: {
         slug: (i + 1).toString(),
@@ -22,22 +22,21 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const authors = await getSinglePage("authors");
-const totalPages = Math.ceil(authors.length / config.settings.pagination);
-const currentPage = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
-const indexOfLastPost = currentPage * config.settings.pagination;
-const indexOfFirstPost = indexOfLastPost - config.settings.pagination;
+const women = await getAllMen("men");
+const currentMan = slug;
+const indexOfLastMan = currentMan * config.settings.pagination;
+const indexOfFirstMan = indexOfLastMan - config.settings.pagination;
 ---
 
-<Base title={"Authors"}>
+<Base title={"Man"}>
   <section class="section">
     <div class="container text-center">
-      <h1 set:text={markdownify("Authors")} class="page-heading h2" />
-      <Authors authors={currentPosts} />
+      <h1 set:text={markdownify("Men")} class="page-heading h2" />
+      <Man man={currentMan} />
       <Pagination
-        section={"authors"}
-        currentPage={currentPage}
-        totalPages={totalPages}
+        section={"men"}
+        currentMan={currentMan}
+        totalMen={totalMen}
       />
     </div>
   </section>

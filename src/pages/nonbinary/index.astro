@@ -2,22 +2,23 @@
 import config from "@config/config.json";
 import Base from "@layouts/Base.astro";
 import Pagination from "@layouts/components/Pagination.astro";
-import { getSinglePage } from "@lib/contentParser.astro";
-import { sortByDate } from "@lib/utils/sortFunctions";
-import { markdownify } from "@lib/utils/textConverter";
+import Nonbinary from "@layouts/Nonbinary.astro";
+import { getCollection } from 'astro:content';
+import { getAllNonbinary } from "@lib/contentParser.astro";
 
-const authors = await getSinglePage("authors");
-const sortedPosts = sortByDate(authors);
-const totalPages = Math.ceil(authors.length / config.settings.pagination);
-const currentPosts = sortedPosts.slice(0, config.settings.pagination);
+const totalWomen = 20;
+const women = await getCollection('women')
 ---
 
-<Base title={"Authors"}>
+<Base>
   <section class="section">
-    <div class="container text-center">
-      <h1 set:text={markdownify("Authors")} class="page-heading h2" />
-      <Authors authors={currentPosts} />
-      <Pagination section={"authors"} currentPage={1} totalPages={totalPages} />
+    <div class="container">
+      <Nonbinary nonbinary={nonbinary} className="mb-16" />
+      <Pagination currentPage={1} totalNonbinary={totalNonbinary} />
     </div>
   </section>
 </Base>
+
+---
+
+
