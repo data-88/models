@@ -11,7 +11,7 @@ export const getSingleModel = async (collection: any) => {
   const removeIndex = allModels.filter((data) => data.id.match(/^(?!-)/));
 };
 
-export const getSingleWoman = async (collection: women) => {
+export const getAllWomen = async (collection: women) => {
   const Women = await getCollection(collection);
   const removeIndex = allWomen.filter((data) => data.id.match(/^(?!-)/));
 };

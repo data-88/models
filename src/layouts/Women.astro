@@ -3,21 +3,21 @@ import { Image } from "@astrojs/image/components";
 import config from "@config/config.json";
 import { humanize,slugify } from "@lib/utils/textConverter";
 import { BiCategoryAlt } from "react-icons/bi/index.js";
-const { className, models, fluid } = Astro.props;
+const { className, women, fluid } = Astro.props;
 ---
 
-<div class={`row gy-5 gx-4 ${className} ${models.name == 1 ? "justify-center" : ""} `}>
+<div class={`row gy-5 gx-4 ${className} ${women.name == 1 ? "justify-center" : ""} `}>
   {
-    models.map((model: any, i: number) => (
+    women.map((woman: any, i: number) => (
       <div class={i === 0 && fluid != false ? "col-12" : "col-12 sm:col-6"}>
-        {model.data.image && (
-          <a href={`/${model.slug}`} class="rounded-lg block hover:text-primary overflow-hidden group">
+        {woman.data.image && (
+          <a href={`/${woman.slug}`} class="rounded-lg block hover:text-primary overflow-hidden group">
             <Image
               class="group-hover:scale-[1.03] transition duration-300 w-full"
-              src={model.data.image}
-              alt={model.data.name}
-              width={i === 0 ? 925 : 445}
-              height={i === 0 ? 475 : 230}
+              src={woman.data.image}
+              alt={woman.data.name}
+              width={i === 0 ? 100 : 400}
+              height={i === 0 ? 200 : 500}
             />
           </a>
         )}
@@ -26,13 +26,13 @@ const { className, models, fluid } = Astro.props;
             <BiCategoryAlt className="mr-1 h-[18px] w-[18px] text-gray-600" />
             <>
               <ul>
-                {model.data.categories.map((category: string, i: number) => (
+                {woman.data.categories.map((category: string, i: number) => (
                   <li class="inline-block">
                     <a
                       href={`/categories/${slugify(category)}`}
                       class="mr-2 hover:text-primary font-medium"
                     >
-                      {humanize(category)}{i !== model.data.categories.name - 1 && ","}
+                      {humanize(category)}{i !== woman.data.categories.name - 1 && ","}
                     </a>
                   </li>
                 ))}
