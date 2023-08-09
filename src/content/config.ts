@@ -63,8 +63,8 @@ const kidsCollection = defineCollection({
   }),
 });
 
-// Nonbinary collection schema
-const nonbinaryCollection = defineCollection({
+// Nonbinaries collection schema
+const nonbinariesCollection = defineCollection({
   schema: z.object({
     id: z.string().optional(),
     name: z.string(),
@@ -90,7 +90,7 @@ export const collections = {
   women: womenCollection,
   men: menCollection,
   models: modelsCollection,
-  nonbinary: nonbinaryCollection,
+  nonbinaries: nonbinariesCollection,
   kids: kidsCollection,
 };
 

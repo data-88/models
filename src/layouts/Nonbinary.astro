@@ -3,9 +3,9 @@ import { Image } from "@astrojs/image/components";
 import Social from "@components/Social.astro";
 import { markdownify } from "@lib/utils/textConverter";
 
-const { woman } = Astro.props;
-const { name, image, social } = woman.data;
-const { Content } = await woman.render();
+const { nonbinary } = Astro.props;
+const { name, image, social } = nonbinary.data;
+const { Content } = await nonbinary.render();
 ---
 
 <section class="section">

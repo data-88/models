@@ -21,12 +21,12 @@ const { models } = Astro.props;
           </div>
         )}
         <h3 class="h4 mt-8 mb-3">
-          <a href={`/authors/${model.slug}`} class="block hover:text-primary transition duration-200">
-            {model.data.title}
+          <a href={`/${model.slug}`} class="block hover:text-primary transition duration-200">
+            {model.data.name}
           </a>
         </h3>
         <p class="mb-3" set:text={markdownify(model.body.slice(0, 100))} />
-        <a href={`/authors/${model.slug}`} class="inline-flex items-center text-primary transition duration-200 hover:opacity-70">
+        <a href={`/${model.slug}`} class="inline-flex items-center text-primary transition duration-200 hover:opacity-70">
           See more <BsArrowRightCircle className="inline ml-2" />
         </a>
       </div>
