@@ -1,10 +1,9 @@
 ---
 name: "Ana K"
 description: "meta description"
-image: "/images/posts/03.jpg"
+image: "/images/models/054.jpg"
 categories: ["women"]
 tags: ["blonde", "CT"]
-rating: 5
 ---
 
 Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.

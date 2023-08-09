@@ -3,11 +3,9 @@ import config from "@config/config.json";
 import Base from "@layouts/Base.astro";
 import Pagination from "@layouts/components/Pagination.astro";
 import Models from "@layouts/Models.astro";
-import { getSinglePage } from "@lib/contentParser.astro";
-import { sortByRating } from "@lib/utils/sortFunctions";
-const models = await getSinglePage("models");
-const sortedModels = sortByRating(models);
-const currentModels = sortedModels.slice(0, config.settings.pagination);
+import { getCollection } from 'astro:content';
+import { getSingleModel } from "@lib/contentParser.astro";
+const models = await getCollection("models");
 const totalModels = Math.ceil(100 / config.settings.pagination);
 ---
 
@@ -15,7 +13,7 @@ const totalModels = Math.ceil(100 / config.settings.pagination);
   <section class="section">
     <div class="container">
       <Models models={models} className="mb-16" />
-      <Pagination currentModel={1} totalModels={totalModels} />
+      <Pagination currentModels={1} totalModels={totalModels} />
     </div>
   </section>
 </Base>

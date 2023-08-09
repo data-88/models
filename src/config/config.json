@@ -13,8 +13,7 @@
 
   "settings": {
     "pagination": 20,
-    "summary_length": 100,
-    "rating": 5
+    "summary_length": 100
   },
 
   "metadata": {

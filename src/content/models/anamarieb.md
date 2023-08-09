@@ -1,16 +1,15 @@
 ---
 name: Anamarie B
 description: "meta description"
-image: "/images/models/415.jpg"
+image: "/images/models/anamarieb/415.jpg"
 categories: ["development"]
 tags: ["women", "main"]
-rating: 5
 ---
 
-![portfolio](/images/models/415.jpg)
-![campaign](/images/models/436.jpg)
-![image inf](/images/models/441.jpg)
-![image inf](/images/models/449.jpg)
+![portfolio](/images/models/anamarieb/415.jpg)
+![campaign](/images/models/anamarieb/436.jpg
+![image inf](/images/models/anamarieb/441.jpg)
+![image inf](/images/models/anamarieb/449.jpg)
 
 Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.
 

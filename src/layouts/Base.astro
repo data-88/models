@@ -14,15 +14,13 @@ const sf = theme.fonts.font_family.secondary;
 export interface Props {
   name?: string;
   meta_title?: string;
-  description?: string;
   image?: string;
-  rating?: number;
   noindex?: boolean;
   canonical?: string;
 }
 
 // distructure frontmatters
-const { name, meta_title, description, image, rating, noindex, canonical } =
+const { name, meta_title, image, noindex, canonical } =
   Astro.props;
 ---
 
@@ -32,7 +30,7 @@ const { name, meta_title, description, image, rating, noindex, canonical } =
     <!-- favicon -->
     <link rel="shortcut icon" href={config.site.favicon} />
     <!-- theme meta -->
-    <meta name="theme-name" content="bookworm-light-astro" />
+    <meta name="purpose" content="Model Agency Cape Town" />
     <meta name="msapplication-TileColor" content="#000000" />
     <meta
       name="theme-color"
@@ -72,15 +70,7 @@ const { name, meta_title, description, image, rating, noindex, canonical } =
     {canonical && <link rel="canonical" href={canonical} item-prop="url" />}
 
     <!-- noindex robots -->
-    {noindex && <meta name="robots" content="noindex,nofollow" />}
-
-    <!-- meta-description -->
-    <meta
-      name="description"
-      content={plainify(
-        description ? description : config.metadata.meta_description
-      )}
-    />
+    {noindex && <meta name="robots" content="" />}
 
     <!-- og-title -->
     <meta
@@ -90,34 +80,8 @@ const { name, meta_title, description, image, rating, noindex, canonical } =
       )}
     />
 
-    <!-- og-description -->
-    <meta
-      property="og:description"
-      content={plainify(
-        description ? description : config.metadata.meta_description
-      )}
-    />
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content={`${config.site.base_url}/${Astro.url.pathname.replace("/", "")}`}
-    />
 
-    <!-- twitter-title -->
-    <meta
-      name="twitter:title"
-      content={plainify(
-        meta_title ? meta_title : title ? title : config.site.title
-      )}
-    />
 
-    <!-- twitter-description -->
-    <meta
-      name="twitter:description"
-      content={plainify(
-        description ? description : config.metadata.meta_description
-      )}
-    />
 
     <!-- og-image -->
     <meta

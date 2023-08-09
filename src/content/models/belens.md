@@ -1,10 +1,9 @@
 ---
-name: "belenS"
+name: "Belen S"
 description: "meta description"
-image: "/images/posts/01.jpg"
+image: "/images/models/belens/belens2.jpg"
 categories: ["women"]
 tags: ["cape town", "international"]
-rating: 5
 ---
 
 Nemo vel ad consectetur namut rutrum ex, venenatis sollicitudin urna. Aliquam erat volutpat. Integer eu ipsum sem. Ut bibendum lacus vestibulum maximus suscipit. Quisque vitae nibh iaculis neque blandit euismod.

@@ -1,14 +1,13 @@
 ---
 import config from "@config/config.json";
-import Models from "@layouts/Models.astro";
+import Models from "@layouts/models.astro";
 import Base from "@layouts/Base.astro";
 import Pagination from "@layouts/components/Pagination.astro";
-import { getSinglePage } from "@lib/contentParser.astro";
-import { sortByRating } from "@lib/utils/sortFunctions";
+import { getSingleModel} from "@lib/contentParser.astro";
 import { markdownify } from "@lib/utils/textConverter";
 
-export async function getStaticPaths() {s
-  const models = await getSinglePage("models");
+export async function getStaticPaths() {
+  const models = await getSingleModel("models");
   const totalModels = Math.ceil(100 / config.settings.pagination);
   const paths = [];
 
@@ -23,20 +22,18 @@ export async function getStaticPaths() {s
 }
 
 const { slug } = Astro.params;
-const models = await getSinglePage("models");
-const sortedModels = sortByRating(models);
+const models = await getSingleModel("models");;
 const totalModels = Math.ceil(100 / config.settings.pagination);
 const currentModel = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
 const indexOfLastModel = currentModel * config.settings.pagination;
 const indexOfFirstModel = indexOfLastModel - config.settings.pagination;
-const currentModels = sortedModels.slice(indexOfFirstModel, indexOfLastModel);
 ---
 
 <Base title={"Models"}>
   <section class="section">
     <div class="container text-center">
       <h1 set:text={markdownify("Models")} class="page-heading h2" />
-      <Models modedls={currentModels} />
+      <Models models={currentModel} />
       <Pagination
         section={"models"}
         currentModel={currentModel}

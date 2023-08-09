@@ -22,10 +22,8 @@ const pagesCollection = defineCollection({
     id: z.string().optional(),
     title: z.string(),
     meta_title: z.string().optional(),
-    description: z.string().optional(),
     image: z.string().optional(),
     layout: z.string().optional(),
-    draft: z.boolean().optional(),
   }),
 });
 
@@ -34,12 +32,10 @@ const modelsCollection = defineCollection({
   schema: z.object({
     id: z.string().optional(),
     name: z.string(),
-    rating: z.number().default(5),
     meta_title: z.string().optional(),
-    description: z.string().optional(),
     image: z.string().optional(),
-    categories: z.array(z.string()).default(["others"]),
-    tags: z.array(z.string()).default(["others"])
+    categories: z.array(z.string()).default(["woman"]),
+    tags: z.array(z.string()).default(["Cape Town"])
   }),
 });
 

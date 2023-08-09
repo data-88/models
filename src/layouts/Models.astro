@@ -3,7 +3,6 @@ import { Image } from "@astrojs/image/components";
 import config from "@config/config.json";
 import { humanize,slugify } from "@lib/utils/textConverter";
 import { BiCategoryAlt } from "react-icons/bi/index.js";
-const { rating } = config.settings;
 const { className, models, fluid } = Astro.props;
 ---
 
@@ -33,7 +32,7 @@ const { className, models, fluid } = Astro.props;
                       href={`/categories/${slugify(category)}`}
                       class="mr-2 hover:text-primary font-medium"
                     >
-                      {humanize(category)}{i - 1 && ","}
+                      {humanize(category)}{i !== model.data.categories.category - 1 && ","}
                     </a>
                   </li>
                 ))}
@@ -41,11 +40,6 @@ const { className, models, fluid } = Astro.props;
             </>
           </li>
         </ul>
-        <h3 class="mb-4">
-          <a href={`/${model.slug}`} class="block hover:text-primary transition duration-300">
-            {model.data.name}
-          </a>
-        </h3>
       </div>
     ))
   }

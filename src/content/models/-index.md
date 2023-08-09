@@ -1,3 +1,3 @@
 ---
-name: Models
+name: "Models"
 ---
