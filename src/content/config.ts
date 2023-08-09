@@ -34,8 +34,8 @@ const womenCollection = defineCollection({
     name: z.string(),
     meta_title: z.string().optional(),
     image: z.string().optional(),
-    categories: z.array(z.string()).default(["woman"]),
-    tags: z.array(z.string()).default(["Cape Town"])
+    categories: z.array(z.string()),
+    tags: z.array(z.string())
   }),
 });
 
@@ -46,8 +46,8 @@ const menCollection = defineCollection({
     name: z.string(),
     meta_title: z.string().optional(),
     image: z.string().optional(),
-    categories: z.array(z.string()).default(["woman"]),
-    tags: z.array(z.string()).default(["Cape Town"])
+    categories: z.array(z.string()),
+    tags: z.array(z.string())
   }),
 });
 
@@ -58,8 +58,8 @@ const kidsCollection = defineCollection({
     name: z.string(),
     meta_title: z.string().optional(),
     image: z.string().optional(),
-    categories: z.array(z.string()).default(["woman"]),
-    tags: z.array(z.string()).default(["Cape Town"])
+    categories: z.array(z.string()),
+    tags: z.array(z.string())
   }),
 });
 
@@ -70,8 +70,8 @@ const nonbinaryCollection = defineCollection({
     name: z.string(),
     meta_title: z.string().optional(),
     image: z.string().optional(),
-    categories: z.array(z.string()).default(["woman"]),
-    tags: z.array(z.string()).default(["Cape Town"])
+    categories: z.array(z.string()),
+    tags: z.array(z.string())
   }),
 });
 

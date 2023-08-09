@@ -7,7 +7,7 @@ import { getSingleModel} from "@lib/contentParser.astro";
 import { markdownify } from "@lib/utils/textConverter";
 
 export async function getStaticPaths() {
-  const women = await getSingleWomen("women");
+  const women = await getSingleModel("women");
   const totalWomen = Math.ceil(40 / config.settings.pagination);
   const paths = [];
 
@@ -22,10 +22,10 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const women = await getSingleModel"women");
+const women = await getSingleModel("women");
 const currentPage = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
-const indexOfLastPost = currentPage * config.settings.pagination;
-const indexOfFirstPost = indexOfLastPost - config.settings.pagination;
+const indexOfLastWoman = currentWoman * config.settings.pagination;
+const indexOfFirstWoman= indexOfLastWoman - config.settings.pagination;
 ---
 
 <Base title={"Women"}>
@@ -35,8 +35,8 @@ const indexOfFirstPost = indexOfLastPost - config.settings.pagination;
       <Women women={currentWomen} />
       <Pagination
         section={"women"}
-        currentWoman={currentWoman}
-        totalWoman={totalWoman}
+        currentWomen={currentWomen}
+        totalWomen={totalWomen}
       />
     </div>
   </section>

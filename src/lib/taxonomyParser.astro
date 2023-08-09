@@ -1,10 +1,14 @@
 ---
-import { getSingleModel } from "./contentParser.astro";
+import { getSingleModel, getSingleWoman, getSingleMan, getSingleKid, getSingleNonbinary } from "./contentParser.astro";
 import { slugify } from "./utils/textConverter";
 
 // get all taxonomies from frontmatter
 export const getTaxonomy = async (collection: string, name: string) => {
   const singleModels = await getSingleModel(collection);
+  const singleWoman= await getSingleWoman(collection);
+  const singleMan= await getSingleMan(collection);
+  const singleKid = await getSingleKid(collection);
+  const singleNonbinary = await getSingleNonbinary(collection);
   const taxonomyModels = singleModels.map((model) => model.data[name]);
   let taxonomies = [];
   for (let i = 0; i < taxonomyModels.length; i++) {

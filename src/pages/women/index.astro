@@ -2,11 +2,11 @@
 import config from "@config/config.json";
 import Base from "@layouts/Base.astro";
 import Pagination from "@layouts/components/Pagination.astro";
-import { getSingleModel } from "@lib/contentParser.astro";
+import { getSingleWoman } from "@lib/contentParser.astro";
 import { markdownify } from "@lib/utils/textConverter";
 
-const models = await getSingleModel("women");
-const totalPages = Math.ceil(100/ config.settings.pagination);
+const women = await getSingleWoman("women");
+const totalPages = Math.ceil(100 / config.settings.pagination);
 ---
 
 <Base title={"Women"}>
@@ -14,7 +14,7 @@ const totalPages = Math.ceil(100/ config.settings.pagination);
     <div class="container text-center">
       <h1 set:text={markdownify("Women")} class="page-heading h2" />
       <Women women={currentWomen} />
-      <Pagination section={"women"} currentPage={1} totalPages={totalPages} />
+      <Pagination section={"women"} currentWoman={1} totalPages={totalWomen} />
     </div>
   </section>
 </Base>
