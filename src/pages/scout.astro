@@ -12,24 +12,13 @@ const { title, description, meta_title, image, what_i_do } = entry.data;
 <Base
   title={title}
   meta_title={meta_title}
-  description={description}
   image={image}
 >
   <section class="section">
     <div class="container">
       <div class="row md:gx-4">
         <div class="sm:col-5 md:col-4">
-          {image && (
-            <div class="img-cover mb-8">
-              <Image
-                src={image}
-                width={295}
-                height={395}
-                alt={title}
-                class="rounded-lg w-full"
-              />
-            </div>
-          )}
+          <h1>Contact us</h1>
         </div>
         <div class="sm:col-7 md:col-8">
           <h1 set:html={markdownify(title)} class="h3 mb-8" />
@@ -45,15 +34,9 @@ const { title, description, meta_title, image, what_i_do } = entry.data;
 
   <section class="section pt-0">
     <div class="container">
-      <h3 class="page-heading mb-20">What we do</h3>
+      <h3 class="page-heading mb-20">Work with us</h3>
       <div class="row justify-center gy-4 text-center">
-        {what_i_do.items.map((item: any) => (
-          <div class="lg:col-4 md:col-6">
-            <i class="{{.icon}} fa-3x text-primary mb-4"></i>
-            <h4 class="text-dark font-weight-700 mb-3">{item.title}</h4>
-            <p>15% rates</p>
-          </div>
-        ))}
+        <h4>Submit pictures</h4>
       </div>
     </div>
   </section>

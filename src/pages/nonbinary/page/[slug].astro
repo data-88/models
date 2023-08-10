@@ -32,7 +32,7 @@ const indexOfFirstNonbinary  = indexOfLastNonbinary  - config.settings.paginatio
   <section class="section">
     <div class="container text-center">
       <h1 set:text={markdownify("Nonbinary")} class="page-heading h2" />
-      <Nonbinary nonbinary={currentcenter} />
+      <Nonbinary nonbinary={currentNonbinary} />
       <Pagination
         section={"nonbinary"}
         currentNonbinary={currentNonbinary}

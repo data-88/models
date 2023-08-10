@@ -1,24 +1,24 @@
 ---
 import config from "@config/config.json";
+import Women from "@layouts/Woman.astro";
 import Base from "@layouts/Base.astro";
 import Pagination from "@layouts/components/Pagination.astro";
-import Women from "@layouts/Women.astro";
+import { getSingleWoman } from "@lib/contentParser.astro"
 import { getCollection } from 'astro:content';
 import { getAllWomen } from "@lib/contentParser.astro";
+import { markdownify } from "@lib/utils/textConverter";
 
-const totalWomen = 20;
-const women = await getCollection('women')
+const women = await getSingleWoman("women");
+const totalWomen = Math.ceil(40 / config.settings.pagination);
+
 ---
 
-<Base>
+<Base name={"Women"}>>
   <section class="section">
     <div class="container">
+      <h1 set:text={markdownify("Women")} class="page-heading h2" />
       <Women women={women} className="mb-16" />
-      <Pagination currentPage={1} totalWomen={totalWomen} />
+      <Pagination section={"women"} currentWoman={1} totalWomen={totalWomen} />
     </div>
   </section>
 </Base>
-
----
-
-

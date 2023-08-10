@@ -1,14 +1,14 @@
 ---
 import config from "@config/config.json";
-import Woman from "@layouts/Woman.astro";
+import Women from "@layouts/Women.astro";
 import Base from "@layouts/Base.astro";
 import Pagination from "@layouts/components/Pagination.astro";
 import { getSingleWoman } from "@lib/contentParser.astro";
-import { markdownify } from "@lib/utils/textConverter";
+import { getAllWomen } from "@lib/contentParser.astro";
 
 export async function getStaticPaths() {
-  const women = await getSingleWoman("women");
-  const totalWomen = Math.ceil(40 / config.settings.pagination);
+  const women = await getSinglePage("women");
+  const totalWomen = Math.ceil(1 / config.settings.pagination);
   const paths = [];
 
   for (let i = 1; i < totalWomen; i++) {
@@ -22,21 +22,23 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const women = await getAllWomen("women");
-const currentWoman = slug;
-const indexOfLastWoman = currentWoman * config.settings.pagination;
-const indexOfFirstWoman = indexOfLastWoman - config.settings.pagination;
+const women = await getSinglePorfolio("women");
+const totalPortfolios = Math.ceil(women.length / config.settings.pagination);
+const currentPortfolio = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
+const indexOfLastPortfolio = currentPortfolio * config.settings.pagination;
+const indexOfFirstPortfolio= indexOfLastPortfolio - config.settings.pagination;
+const currentPortfolio = sortedPortfolio.slice(indexOfFirstPortfolio, indexOfLastPortfolio);
 ---
 
-<Base title={"Woman"}>
+<Base title={"Women"}>
   <section class="section">
     <div class="container text-center">
       <h1 set:text={markdownify("Women")} class="page-heading h2" />
-      <Woman woman={currentWoman} />
+      <Women women={currentPortfolio} />
       <Pagination
         section={"women"}
-        currentWoman={currentWoman}
-        totalWomen={totalWomen}
+        currentPortfolio={currentPortfolio}
+        totalPortfolios={totalPortfolios}
       />
     </div>
   </section>

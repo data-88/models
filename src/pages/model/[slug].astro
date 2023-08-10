@@ -8,7 +8,7 @@ import { markdownify } from "@lib/utils/textConverter";
 
 export async function getStaticPaths() {
   const models = await getSingleModel("models");
-  const totalModels = Math.ceil(30 / config.settings.pagination);
+  const totalModels = Math.ceil(50 / config.settings.pagination);
   const paths = [];
 
   for (let i = 1; i < totalModels; i++) {
@@ -22,7 +22,7 @@ export async function getStaticPaths() {
 }
 
 const { slug } = Astro.params;
-const models = await getSingleModel("models");;
+const model = await getSingleModel("models");;
 const totalModels = Math.ceil(100 / config.settings.pagination);
 const currentModel = slug && !isNaN(Number(slug)) ? Number(slug) : 1;
 const indexOfLastModel = currentModel * config.settings.pagination;
@@ -33,7 +33,7 @@ const indexOfFirstModel = indexOfLastModel - config.settings.pagination;
   <section class="section">
     <div class="container text-center">
       <h1 set:text={markdownify("Models")} class="page-heading h2" />
-      <Models models={currentModel} />
+      <Models model={currentModel} />
       <Pagination
         section={"models"}
         currentModel={currentModel}

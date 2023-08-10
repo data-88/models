@@ -6,52 +6,43 @@ export const getSinglePage = async (collection: any) => {
   const removeIndex = allPage.filter((data) => data.id.match(/^(?!-)/));
 };
 
-export const getSingleModel = async (collection: any) => {
-  const Models = await getCollection(collection);
-  const removeIndex = Models.filter((data) => data.id.match(/^(?!-)/));
-};
 
-export const getAllModels = async (collection: models) => {
-  const Models = await getCollection(collection);
-  const removeIndex = Models.filter((data) => data.id.match(/^(?!-)/));
-};
-
-export const getAllWomen = async (collection: women) => {
+export const getAllWomen = async (collection: any) => {
   const Women = await getCollection(collection);
   const removeIndex = Women.filter((data) => data.id.match(/^(?!-)/));
 };
 
-export const getSingleWoman = async (collection: women) => {
-  const Woman = await getCollection(collection);
+export const getSingleWoman = async (collection: any) => {
+  const Woman = await getCollection(women);
   const removeIndex = Woman.filter((data) => data.id.match(/^(?!-)/));
 };
 
-export const getAllMen = async (collection: men) => {
+export const getAllMen = async (collection: any) => {
   const Men = await getCollection(collection);
   const removeIndex = Men.filter((data) => data.id.match(/^(?!-)/));
 };
 
-export const getSingleMan = async (collection: men) => {
+export const getSingleMan = async (collection: any) => {
   const Man = await getCollection(collection);
   const removeIndex = Man.filter((data) => data.id.match(/^(?!-)/));
 };
 
-export const getAllKids = async (collection: kids) => {
+export const getAllKids = async (collection: any) => {
   const Kids = await getCollection(collection);
   const removeIndex = Kids.filter((data) => data.id.match(/^(?!-)/));
 };
 
-export const getSingleKid = async (collection: kids) => {
+export const getSingleKid = async (collection: any) => {
   const Kid = await getCollection(collection);
   const removeIndex = Kid.filter((data) => data.id.match(/^(?!-)/));
 };
 
-export const getAllNonbinaries = async (collection: nonbinaries) => {
+export const getAllNonbinaries = async (collection: any) => {
   const Nonbinaries = await getCollection(collection);
   const removeIndex = Nonbinaries.filter((data) => data.id.match(/^(?!-)/));
 };
 
-export const getSingleNonbinary = async (collection: nonbinaries) => {
+export const getSingleNonbinary = async (collection: any) => {
   const Nonbinary = await getCollection(collection);
   const removeIndex = Nonbinary.filter((data) => data.id.match(/^(?!-)/));
 };

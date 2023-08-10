@@ -18,13 +18,12 @@ export async function getStaticPaths() {
 }
 
 const { man } = Astro.props;
-const { name, meta_title, image } = man.data;
+const { name, image } = man.data;
 
 ---
 
 <Base
   name={name}
-  meta_title={meta_title}
   image={image}
 >
   <Man man={man} />
